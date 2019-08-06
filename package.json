@@ -1,0 +1,53 @@
+{
+  "name": "@arcanis/sherlock",
+  "version": "1.0.16",
+  "bin": "sources/boot-dev.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arcanis/sherlock.git"
+  },
+  "dependencies": {
+    "@octokit/rest": "^16.28.7",
+    "clipanion": "2.0.0-rc.16",
+    "expect": "^24.8.0",
+    "git-url-parse": "^11.1.2",
+    "parse-github-url": "^1.0.2",
+    "pkg-up": "^3.1.0",
+    "remark": "^11.0.1",
+    "tmp": "^0.1.0",
+    "unist-util-visit": "^2.0.0",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/register": "^7.5.5",
+    "@berry/pnpify": "^0.1.0",
+    "@types/git-url-parse": "^9.0.0",
+    "@types/node": "^12.7.1",
+    "@types/tmp": "^0.1.0",
+    "@types/unist": "^2.0.3",
+    "@types/yup": "^0.26.22",
+    "typescript": "^3.5.3",
+    "unified": "^8.3.2"
+  },
+  "dependenciesMeta": {
+    "core-js": {
+      "built": false
+    }
+  },
+  "scripts": {
+    "prepack": "rm -rf lib && yarn pnpify tsc",
+    "postpack": "rm -rf lib"
+  },
+  "publishConfig": {
+    "bin": "lib/boot.js"
+  },
+  "files": [
+    "/lib"
+  ]
+}
