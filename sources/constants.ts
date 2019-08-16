@@ -17,5 +17,5 @@ export const COMMENT_BODIES = new Map([
     [LABEL_UNREPRODUCIBLE, () => `We couldn't reproduce your issue (all the assertions passed on master).`],
 ]);
 
-export const CONTEXT_FILE = path.join(process.env.GITHUB_WORKSPACE!, `sherlock-context.json`);
-export const RESULT_FILE = path.join(process.env.GITHUB_WORKSPACE!, `sherlock-result.json`);
+export const CONTEXT_FILE = path.join(process.env.GITHUB_WORKSPACE || `/tmp`, `sherlock-context.json`);
+export const RESULT_FILE = path.join(process.env.GITHUB_WORKSPACE || `/tmp`, `sherlock-result.json`);

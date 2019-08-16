@@ -1,6 +1,6 @@
 {
   "name": "@arcanis/sherlock",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "bin": "sources/boot-dev.js",
   "license": "MIT",
   "repository": {
