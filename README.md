@@ -23,7 +23,7 @@ In the future, Sherlock will (non exhaustive list):
 yarn add -D @arcanis/sherlock
 ```
 
-Then create a new [GitHub Workflow]() with the following content:
+Then create a new [GitHub Workflow](https://help.github.com/en/articles/configuring-workflows) with the following content:
 
 ```yml
 on: [issues]
