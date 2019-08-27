@@ -60,7 +60,8 @@ export async function executeRepro(code: string, requireList: string[]) {
         try {
             await test();
         } catch (error_) {
-            if (error_.matcherResult) {
+            // Note: hasOwnProperty because in some cases they're set to undefined
+            if (Object.prototype.hasOwnProperty.call(error_, `matcherResult`)) {
                 assertion = error_.stack;
             } else {
                 error = error_.stack;
