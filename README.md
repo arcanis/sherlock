@@ -124,6 +124,28 @@ global.preparePackageJson = async function (data) {
 
 ### How to run a testcase on my own machine?
 
+### Running issues from local markdown file
+
+You can describe your issue in a local markdown file:
+
+**my_test_post.md**
+
+~~~markdown
+This is my reproduction case:
+
+```js repro
+const foo = ...;
+```
+~~~
+
+And run the following command:
+
+```
+yarn sherlock my_test_post.md
+```
+
+### Running issues from GitHub repo on local machine
+
 Just go into your repository, ensure that your package.json contains the right fields:
 
 ```json
