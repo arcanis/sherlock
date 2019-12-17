@@ -68,7 +68,7 @@ export class ReportCommand extends Command {
                 query: `
                     ${hiddenComments.map(comment => `
                         mutation HideComment_${comment.id} {
-                            minimizeComment(input: {subjectId: ${comment.node_id}, classifier: "OUTDATED"}) {
+                            minimizeComment(input: {subjectId: "${comment.node_id}", classifier: "OUTDATED"}) {
                             }
                         }
                     `)}
