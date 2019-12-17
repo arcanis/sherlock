@@ -59,7 +59,7 @@ export class ReportCommand extends Command {
         console.log(hiddenComments);
 
         if (hiddenComments.length > 0) {
-            await octokit.request({
+            const res = await octokit.request({
                 method: `POST`,
                 url: `/graphql`,
                 headers: {
@@ -68,12 +68,14 @@ export class ReportCommand extends Command {
                 query: `
                     ${hiddenComments.map(comment => `
                         mutation HideComment_${comment.id} {
-                            minimizeComment(input: {subjectId: comment.node_id, classifier: "OUTDATED"}) {
+                            minimizeComment(input: {subjectId: ${comment.node_id}, classifier: "OUTDATED"}) {
                             }
                         }
                     `)}
                 `,
             });
+
+            console.log(require(`util`).inspect(res, {depth: Infinity}));
         }
 
         await octokit.issues.createComment({
