@@ -40,7 +40,7 @@ export class ReportCommand extends Command {
             labels: [...labels],
         });
 
-        const authenticated = await octokit.users.getAuthenticated();
+        const {data: authenticated} = await octokit.users.getAuthenticated();
 
         const comments = await octokit.paginate(octokit.issues.listComments.endpoint.merge({
             owner: context.owner,
