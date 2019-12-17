@@ -1,6 +1,10 @@
 {
   "name": "@arcanis/sherlock",
   "version": "1.0.20",
+  "nextVersion": {
+    "semver": "1.0.21",
+    "nonce": "6642599559868321"
+  },
   "bin": "sources/boot-dev.js",
   "license": "MIT",
   "repository": {
