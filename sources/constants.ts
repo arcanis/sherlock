@@ -13,7 +13,7 @@ export const SHERLOCK_LABELS = new Set([LABEL_REPRODUCIBLE, LABEL_BROKEN, LABEL_
 
 export const COMMENT_BODIES = new Map([
     [LABEL_REPRODUCIBLE, ({assertion}: any) => `This issue reproduces on master:\n\`\`\`\n${assertion}\n\`\`\``],
-    [LABEL_BROKEN, ({error}: any) => `The reproduction case in your issue seems broken:\n\`\`\`\n${error}\n\`\`\``],
+    [LABEL_BROKEN, ({error}: any) => `The reproduction case in your issue seems broken (ie it neither pass nor fail due to throwing an unmanaged exception):\n\`\`\`\n${error}\n\`\`\`\n\nRemember: any non-Jest exceptions will cause the test to be reported as broken. If you expect something to pass without throwing, you must wrap it into something like \`await expect(...).resolves.toBeTruthy()\`. If you instead expect something to throw, you need to wrap it into \`await expect(...).rejects.toThrow()\`.`],
     [LABEL_UNREPRODUCIBLE, () => `We couldn't reproduce your issue (all the assertions passed on master).`],
 ]);
 

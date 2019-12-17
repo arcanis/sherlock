@@ -67,7 +67,7 @@ export class EntryCommand extends Command {
                 auth: process.env.GITHUB_TOKEN,
             });
 
-            if (!process.env.GITHUB_TOKEN)
+            if (!process.env.GITHUB_TOKEN && process.env.GITHUB_ACTIONS)
                 throw new UsageError(`Missing GitHub token in the environment`);
 
             let issue: number;

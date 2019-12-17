@@ -40,6 +40,34 @@ export class ReportCommand extends Command {
             labels: [...labels],
         });
 
+        const authenticated = await octokit.users.getAuthenticated();
+
+        const comments = await octokit.paginate(octokit.issues.listComments.endpoint.merge({
+            owner: context.owner,
+            repo: context.repository,
+            issue_number: context.issue,
+        }));
+
+        const hiddenComments = comments.filter(comment => {
+            return comment.user.login === authenticated.user;
+        });
+
+        await octokit.request({
+            method: `POST`,
+            url: `/graphql`,
+            headers: {
+                Accept: `application/vnd.github.queen-beryl-preview+json`,
+            },
+            query: `
+                ${hiddenComments.map(comment => `
+                    mutation HideComment_${comment.id} {
+                        minimizeComment(input: {subjectId: comment.node_id, classifier: "OUTDATED"}) {
+                        }
+                    }
+                `)}
+            `,
+        });
+
         await octokit.issues.createComment({
             owner: context.owner,
             repo: context.repository,
