@@ -66,8 +66,8 @@ export class ReportCommand extends Command {
                     Accept: `application/vnd.github.queen-beryl-preview+json`,
                 },
                 query: `
-                    ${hiddenComments.map(comment => `
-                        mutation HideComment_${comment.id} {
+                    ${hiddenComments.map((comment, index) => `
+                        mutation HideComment${index} {
                             minimizeComment(input: {subjectId: "${comment.node_id}", classifier: "OUTDATED"}) {
                                 minimizedComment
                             }
