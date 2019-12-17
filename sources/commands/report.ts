@@ -49,24 +49,26 @@ export class ReportCommand extends Command {
         }));
 
         const hiddenComments = comments.filter(comment => {
-            return comment.user.login === authenticated.user;
+            return comment.user.login === authenticated.login;
         });
 
-        await octokit.request({
-            method: `POST`,
-            url: `/graphql`,
-            headers: {
-                Accept: `application/vnd.github.queen-beryl-preview+json`,
-            },
-            query: `
-                ${hiddenComments.map(comment => `
-                    mutation HideComment_${comment.id} {
-                        minimizeComment(input: {subjectId: comment.node_id, classifier: "OUTDATED"}) {
+        if (hiddenComments.length > 0) {
+            await octokit.request({
+                method: `POST`,
+                url: `/graphql`,
+                headers: {
+                    Accept: `application/vnd.github.queen-beryl-preview+json`,
+                },
+                query: `
+                    ${hiddenComments.map(comment => `
+                        mutation HideComment_${comment.id} {
+                            minimizeComment(input: {subjectId: comment.node_id, classifier: "OUTDATED"}) {
+                            }
                         }
-                    }
-                `)}
-            `,
-        });
+                    `)}
+                `,
+            });
+        }
 
         await octokit.issues.createComment({
             owner: context.owner,
