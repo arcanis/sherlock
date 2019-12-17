@@ -58,7 +58,8 @@ export class ReportCommand extends Command {
                     mutation {
                         minimizeComment(input: {subjectId: "${comment.node_id}", classifier: "OUTDATED"}) {
                             minimizedComment {
-                                id
+                                isMinimized
+                                viewerCanMinimize
                             }
                         }
                     }
