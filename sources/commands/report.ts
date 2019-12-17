@@ -42,15 +42,21 @@ export class ReportCommand extends Command {
 
         const {data: authenticated} = await octokit.users.getAuthenticated();
 
+        console.log(authenticated);
+
         const comments = await octokit.paginate(octokit.issues.listComments.endpoint.merge({
             owner: context.owner,
             repo: context.repository,
             issue_number: context.issue,
         }));
 
+        console.log(comments);
+
         const hiddenComments = comments.filter(comment => {
             return comment.user.login === authenticated.login;
         });
+
+        console.log(hiddenComments);
 
         if (hiddenComments.length > 0) {
             await octokit.request({
