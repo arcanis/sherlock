@@ -56,7 +56,7 @@ export class ReportCommand extends Command {
             for (const comment of hiddenComments) {
                 const query = `
                     mutation {
-                        minimizeComment(input: {subjectId: "${comment.node_id}", classifier: "OUTDATED"}) {
+                        minimizeComment(input: {subjectId: "${comment.node_id}", classifier: OUTDATED}) {
                             minimizedComment {
                                 isMinimized
                                 viewerCanMinimize
