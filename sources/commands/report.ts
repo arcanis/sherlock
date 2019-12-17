@@ -42,40 +42,35 @@ export class ReportCommand extends Command {
 
         const {data: authenticated} = await octokit.users.getAuthenticated();
 
-        console.log(authenticated);
-
         const comments = await octokit.paginate(octokit.issues.listComments.endpoint.merge({
             owner: context.owner,
             repo: context.repository,
             issue_number: context.issue,
         }));
 
-        console.log(comments);
-
         const hiddenComments = comments.filter(comment => {
             return comment.user.login === authenticated.login;
         });
 
-        console.log(hiddenComments);
-
         if (hiddenComments.length > 0) {
+            const query = `
+                ${hiddenComments.map((comment, index) => `
+                    mutation HideComment${index} {
+                        minimizeComment(input: {subjectId: "${comment.node_id}", classifier: "OUTDATED"}) {
+                            minimizedComment
+                        }
+                    }
+                `).join(`\n`)}
+            `;
+
             const res = await octokit.request({
                 method: `POST`,
                 url: `/graphql`,
-                headers: {
-                    Accept: `application/vnd.github.queen-beryl-preview+json`,
-                },
-                query: `
-                    ${hiddenComments.map((comment, index) => `
-                        mutation HideComment${index} {
-                            minimizeComment(input: {subjectId: "${comment.node_id}", classifier: "OUTDATED"}) {
-                                minimizedComment
-                            }
-                        }
-                    `)}
-                `,
+                headers: {Accept: `application/vnd.github.queen-beryl-preview+json`},
+                query,
             });
 
+            console.log(query);
             console.log(require(`util`).inspect(res, {depth: Infinity}));
         }
 
