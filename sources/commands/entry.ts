@@ -93,6 +93,6 @@ export class EntryCommand extends Command {
         const requireList = await fetchRequireList(this.requireList);
         const {assertion, error} = await executeRepro(repro, requireList);
 
-        this.context.stdout.write(assertion || error);
+        this.context.stdout.write(assertion || error || `No problem found!\n`);
     }
 }
