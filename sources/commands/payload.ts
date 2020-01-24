@@ -23,8 +23,8 @@ export class PayloadCommand extends Command {
             this.context.stdout.write(`Bailout because the action isn't watched (${action})\n`);
             return NEUTRAL_EXIT;
         }
-    
-        if (action === `labeled` && labels.some(({name}) => SHERLOCK_LABELS.has(name))) {
+
+        if (action === `unlabeled` && labels.some(({name}) => SHERLOCK_LABELS.has(name))) {
             this.context.stdout.write(`Bailout because the labels are already set (${labels.map(({name}) => name)})\n`);
             return NEUTRAL_EXIT;
         }
