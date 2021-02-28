@@ -4,10 +4,18 @@
 __metadata:
   version: 4
 
+"@actions/core@npm:^1.2.6":
+  version: 1.2.6
+  resolution: "@actions/core@npm:1.2.6"
+  checksum: 4be3dda26d2fc5d4af0c7649edb0d9f47f98a5aaaccc74329708a68a56e8d500c0d5fa0bd101818dc6947a057646dcc87e4e04176985762beb0aaa69c6470c4b
+  languageName: node
+  linkType: hard
+
 "@arcanis/sherlock@workspace:.":
   version: 0.0.0-use.local
   resolution: "@arcanis/sherlock@workspace:."
   dependencies:
+    "@actions/core": ^1.2.6
     "@babel/core": ^7.5.5
     "@babel/plugin-proposal-class-properties": ^7.5.5
     "@babel/plugin-proposal-decorators": ^7.4.4
