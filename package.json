@@ -1,6 +1,6 @@
 {
   "name": "@arcanis/sherlock",
-  "version": "1.0.37",
+  "version": "1.1.0",
   "bin": "sources/boot-dev.js",
   "license": "MIT",
   "repository": {
@@ -8,6 +8,7 @@
     "url": "https://github.com/arcanis/sherlock.git"
   },
   "dependencies": {
+    "@actions/core": "^1.2.6",
     "@octokit/rest": "^16.28.7",
     "clipanion": "2.0.0-rc.16",
     "expect": "^24.8.0",

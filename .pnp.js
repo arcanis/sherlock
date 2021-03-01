@@ -95,6 +95,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@actions/core", "npm:1.2.6"],
             ["@babel/core", "npm:7.5.5"],
             ["@babel/plugin-proposal-class-properties", "virtual:bf34fa33bb5c250fc08064c206bce181cd1de98094464fdddee97412ec68ad5324b687b9c29832748a1141ab5fa6fda3647703daf9ecb77e4f6bb347d9a5084e#npm:7.5.5"],
             ["@babel/plugin-proposal-decorators", "virtual:bf34fa33bb5c250fc08064c206bce181cd1de98094464fdddee97412ec68ad5324b687b9c29832748a1141ab5fa6fda3647703daf9ecb77e4f6bb347d9a5084e#npm:7.4.4"],
@@ -123,11 +124,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"
         }]
       ]],
+      ["@actions/core", [
+        ["npm:1.2.6", {
+          "packageLocation": "./.yarn/cache/@actions-core-npm-1.2.6-f205abe96a-1.zip/node_modules/@actions/core/",
+          "packageDependencies": [
+            ["@actions/core", "npm:1.2.6"]
+          ],
+          "linkType": "HARD"
+        }]
+      ]],
       ["@arcanis/sherlock", [
         ["workspace:.", {
           "packageLocation": "./",
           "packageDependencies": [
             ["@arcanis/sherlock", "workspace:."],
+            ["@actions/core", "npm:1.2.6"],
             ["@babel/core", "npm:7.5.5"],
             ["@babel/plugin-proposal-class-properties", "virtual:bf34fa33bb5c250fc08064c206bce181cd1de98094464fdddee97412ec68ad5324b687b9c29832748a1141ab5fa6fda3647703daf9ecb77e4f6bb347d9a5084e#npm:7.5.5"],
             ["@babel/plugin-proposal-decorators", "virtual:bf34fa33bb5c250fc08064c206bce181cd1de98094464fdddee97412ec68ad5324b687b9c29832748a1141ab5fa6fda3647703daf9ecb77e4f6bb347d9a5084e#npm:7.4.4"],

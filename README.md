@@ -48,16 +48,20 @@ jobs:
           yarn
 
       - name: Sherlock Payload
+        id: sherlock-payload
+        continue-on-error: true
         run: |
           yarn sherlock payload
 
       - name: Sherlock Execution
+        if: ${{ steps.sherlock-payload.outcome == 'success' }}
         uses: docker://node:lts-jessie
         with:
           entrypoint: bash
           args: scripts/actions/sherlock-docker.sh
 
       - name: Sherlock Reporting
+        if: ${{ steps.sherlock-payload.outcome == 'success' }}
         run: |
           yarn sherlock report
         env:

@@ -1,9 +1,10 @@
 import {Command, UsageError}         from 'clipanion';
 import {readFileSync, writeFileSync} from 'fs';
+import {setOutput}                   from '@actions/core'
 
-import {NEUTRAL_EXIT, CONTEXT_FILE, SHERLOCK_LABELS, WATCHED_ACTIONS} from '../constants';
-import {extractRepro}                                                 from '../extractRepro';
-import {Context, GithubEventFile}                                     from '../types';
+import {CONTEXT_FILE, SHERLOCK_LABELS, WATCHED_ACTIONS, OutcomeValue, OUTCOME_KEY} from '../constants';
+import {extractRepro}                                                              from '../extractRepro';
+import {Context, GithubEventFile}                                                  from '../types';
 
 export class PayloadCommand extends Command {
     @Command.Path(`payload`)
@@ -21,18 +22,21 @@ export class PayloadCommand extends Command {
 
         if (!WATCHED_ACTIONS.has(action)) {
             this.context.stdout.write(`Bailout because the action isn't watched (${action})\n`);
-            return NEUTRAL_EXIT;
+            setOutput(OUTCOME_KEY, OutcomeValue.UNWATCHED_ACTION);
+            return 0;
         }
 
         if (action === `unlabeled` && labels.some(({name}) => SHERLOCK_LABELS.has(name))) {
             this.context.stdout.write(`Bailout because the labels are already set (${labels.map(({name}) => name)})\n`);
-            return NEUTRAL_EXIT;
+            setOutput(OUTCOME_KEY, OutcomeValue.LABELS_ALREADY_SET);
+            return 0;
         }
 
         const repro = extractRepro(body);
         if (!repro) {
             this.context.stdout.write(`Bailout because no JS code block got found\n`);
-            return NEUTRAL_EXIT;
+            setOutput(OUTCOME_KEY, OutcomeValue.NO_REPRO_BLOCK);
+            return 0;
         }
 
         const context: Context = {
@@ -44,5 +48,6 @@ export class PayloadCommand extends Command {
         };
 
         writeFileSync(CONTEXT_FILE, JSON.stringify(context, null, 2) + `\n`);
+        setOutput(OUTCOME_KEY, OutcomeValue.SUCCESS);
     }
 }
