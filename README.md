@@ -53,14 +53,14 @@ jobs:
           yarn sherlock payload
 
       - name: Sherlock Execution
-        if: ${{ steps.sherlock-payload.sherlock-outcome == 'success' }}
+        if: ${{ steps.sherlock-payload.outputs.outcome == 'success' }}
         uses: docker://node:lts-jessie
         with:
           entrypoint: bash
           args: scripts/actions/sherlock-docker.sh
 
       - name: Sherlock Reporting
-        if: ${{ steps.sherlock-payload.sherlock-outcome == 'success' }}
+        if: ${{ steps.sherlock-payload.outputs.outcome == 'success' }}
         run: |
           yarn sherlock report
         env:

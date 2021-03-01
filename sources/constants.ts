@@ -20,7 +20,7 @@ export const COMMENT_BODIES = new Map([
 export const CONTEXT_FILE = path.join(process.env.GITHUB_WORKSPACE || `/tmp`, `sherlock-context.json`);
 export const RESULT_FILE = path.join(process.env.GITHUB_WORKSPACE || `/tmp`, `sherlock-result.json`);
 
-export const OUTCOME_KEY = `sherlock-outcome`
+export const OUTCOME_KEY = `outcome`
 
 export enum OutcomeValue {
     UNWATCHED_ACTION = "unwatched action",
