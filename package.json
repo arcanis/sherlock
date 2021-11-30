@@ -27,9 +27,8 @@
     "@babel/plugin-transform-modules-commonjs": "^7.5.0",
     "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.5.5",
-    "@berry/pnpify": "^0.1.0",
     "@types/git-url-parse": "^9.0.0",
-    "@types/node": "^12.7.1",
+    "@types/node": "^14.17.34",
     "@types/tmp": "^0.1.0",
     "@types/unist": "^2.0.3",
     "@types/yup": "^0.26.22",
@@ -50,5 +49,6 @@
   },
   "files": [
     "/lib/**/*"
-  ]
+  ],
+  "packageManager": "yarn@3.1.1"
 }
