@@ -1,10 +1,12 @@
 import expect                  from 'expect';
 import {readFileSync}          from 'fs';
-// @ts-ignore
-import {createRequireFromPath} from 'module';
+import  {createRequire, createRequireFromPath}  from 'module';
 import path                    from 'path';
 import tmp                     from 'tmp';
 import vm                      from 'vm';
+
+// @ts-ignore
+const requireFactory = createRequire ? createRequire : createRequireFromPath;
 
 async function executeInTempDirectory<T>(fn: () => Promise<T>) {
     const cwd = process.cwd();
@@ -32,11 +34,11 @@ export async function executeRepro(code: string, requireList: string[]) {
             vm.createContext(sandbox);
 
             if (p !== null) {
-                sandbox.require = createRequireFromPath(p);
+                sandbox.require = requireFactory(p);
                 sandbox.__dirname = path.dirname(p);
                 sandbox.__filename = p;
             } else {
-                sandbox.require = createRequireFromPath(path.join(process.cwd(), `repro`));
+                sandbox.require = requireFactory(path.join(process.cwd(), `repro`));
             }
 
             vm.runInContext(code, sandbox);
@@ -59,7 +61,7 @@ export async function executeRepro(code: string, requireList: string[]) {
 
         try {
             await test();
-        } catch (error_) {
+        } catch (error_: any) {
             // Note: hasOwnProperty because in some cases they're set to undefined
             if (Object.prototype.hasOwnProperty.call(error_, `matcherResult`)) {
                 assertion = error_.stack;
