@@ -55,7 +55,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pkg-up", "npm:3.1.0"],
             ["remark", "npm:11.0.1"],
             ["tmp", "npm:0.1.0"],
-            ["typescript", "patch:typescript@npm%3A3.5.3#~builtin<compat/typescript>::version=3.5.3&hash=493e53"],
+            ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"],
             ["unified", "npm:8.3.2"],
             ["unist-util-visit", "npm:2.0.0"],
             ["yup", "npm:0.27.0"]
@@ -97,7 +97,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pkg-up", "npm:3.1.0"],
             ["remark", "npm:11.0.1"],
             ["tmp", "npm:0.1.0"],
-            ["typescript", "patch:typescript@npm%3A3.5.3#~builtin<compat/typescript>::version=3.5.3&hash=493e53"],
+            ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"],
             ["unified", "npm:8.3.2"],
             ["unist-util-visit", "npm:2.0.0"],
             ["yup", "npm:0.27.0"]
@@ -3125,10 +3125,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["typescript", [
-        ["patch:typescript@npm%3A3.5.3#~builtin<compat/typescript>::version=3.5.3&hash=493e53", {
-          "packageLocation": "./.yarn/cache/typescript-patch-bfe51baa93-25f4c30cde.zip/node_modules/typescript/",
+        ["patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53", {
+          "packageLocation": "./.yarn/cache/typescript-patch-0b90225f97-2e488dde7d.zip/node_modules/typescript/",
           "packageDependencies": [
-            ["typescript", "patch:typescript@npm%3A3.5.3#~builtin<compat/typescript>::version=3.5.3&hash=493e53"]
+            ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"]
           ],
           "linkType": "HARD",
         }]

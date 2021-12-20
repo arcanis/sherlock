@@ -20,7 +20,7 @@ const oneOfType = (alternatives: yup.Schema<any>[]) => {
                 candidate.validateSync(value);
                 return candidate;
             } catch (error) {
-                if (error.name !== `ValidationError`) {
+                if (!(error instanceof Error) || error.name !== `ValidationError`) {
                     throw error;
                 }
             }

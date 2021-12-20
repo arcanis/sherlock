@@ -32,7 +32,7 @@
     "@types/tmp": "^0.1.0",
     "@types/unist": "^2.0.3",
     "@types/yup": "^0.26.22",
-    "typescript": "^3.5.3",
+    "typescript": "^4.5.4",
     "unified": "^8.3.2"
   },
   "dependenciesMeta": {
@@ -41,7 +41,7 @@
     }
   },
   "scripts": {
-    "prepack": "rm -rf lib && rsync -a --exclude '*.ts' sources/ lib/ && yarn pnpify tsc",
+    "prepack": "rm -rf lib && rsync -a --exclude '*.ts' sources/ lib/ && yarn tsc",
     "postpack": "rm -rf lib"
   },
   "publishConfig": {
