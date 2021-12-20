@@ -1,10 +1,11 @@
-import expect                  from 'expect';
-import {readFileSync}          from 'fs';
-// @ts-ignore
-import {createRequireFromPath} from 'module';
-import path                    from 'path';
-import tmp                     from 'tmp';
-import vm                      from 'vm';
+import expect         from 'expect';
+import {readFileSync} from 'fs';
+import Module         from 'module';
+import path           from 'path';
+import tmp            from 'tmp';
+import vm             from 'vm';
+
+const createRequire = Module.createRequire || Module.createRequireFromPath;
 
 async function executeInTempDirectory<T>(fn: () => Promise<T>) {
     const cwd = process.cwd();
@@ -32,11 +33,11 @@ export async function executeRepro(code: string, requireList: string[]) {
             vm.createContext(sandbox);
 
             if (p !== null) {
-                sandbox.require = createRequireFromPath(p);
+                sandbox.require = createRequire(p);
                 sandbox.__dirname = path.dirname(p);
                 sandbox.__filename = p;
             } else {
-                sandbox.require = createRequireFromPath(path.join(process.cwd(), `repro`));
+                sandbox.require = createRequire(path.join(process.cwd(), `repro`));
             }
 
             vm.runInContext(code, sandbox);
