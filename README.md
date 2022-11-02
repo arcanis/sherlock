@@ -26,7 +26,9 @@ yarn add -D @arcanis/sherlock
 Then create a new [GitHub Workflow](https://help.github.com/en/articles/configuring-workflows) with the following content:
 
 ```yml
-on: [issues]
+on:
+  issues:
+    types: [opened, edited, unlabeled]
 
 name: Sherlock
 jobs:
@@ -186,9 +188,7 @@ The reason why we do all this in three steps (rather than a single one) is that 
 
 Some things that GitHub could do to make Sherlock better integrated:
 
-- support a copy button on code blocks (this way we can just copy the repro to try it out locally)
 - support CI-like status for issues (this way we could avoid polluting the comment thread)
-- support for fine-tuned triggers (this way we could avoid spawning the workflow for issue events we don't care)
 
 ## License (MIT)
 
