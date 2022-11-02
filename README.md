@@ -189,7 +189,6 @@ The reason why we do all this in three steps (rather than a single one) is that 
 Some things that GitHub could do to make Sherlock better integrated:
 
 - support CI-like status for issues (this way we could avoid polluting the comment thread)
-- support for fine-tuned triggers (this way we could avoid spawning the workflow for issue events we don't care)
 
 ## License (MIT)
 
