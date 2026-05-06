@@ -130,7 +130,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["convert-source-map", "npm:1.6.0"],
             ["debug", "virtual:fd58a38d1c405e74ad8f24510c1e7e261aefaf0f53edfc08a20a010c6035531aafe89a3a49b864163cd5334e9b0a8e051477e917c733114bcd63f7d1a7978301#npm:4.1.1"],
             ["json5", "npm:2.1.0"],
-            ["lodash", "npm:4.17.15"],
+            ["lodash", "npm:4.18.1"],
             ["resolve", "patch:resolve@npm%3A1.12.0#~builtin<compat/resolve>::version=1.12.0&hash=07638b"],
             ["semver", "npm:5.7.0"],
             ["source-map", "npm:0.5.7"]
@@ -145,7 +145,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/generator", "npm:7.5.5"],
             ["@babel/types", "npm:7.5.5"],
             ["jsesc", "npm:2.5.2"],
-            ["lodash", "npm:4.17.15"],
+            ["lodash", "npm:4.18.1"],
             ["source-map", "npm:0.5.7"],
             ["trim-right", "npm:1.0.1"]
           ],
@@ -232,7 +232,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/helper-split-export-declaration", "npm:7.4.4"],
             ["@babel/template", "npm:7.4.4"],
             ["@babel/types", "npm:7.5.5"],
-            ["lodash", "npm:4.17.15"]
+            ["lodash", "npm:4.18.1"]
           ],
           "linkType": "HARD",
         }]
@@ -519,7 +519,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel__core", null],
             ["core-js", "npm:3.1.4"],
             ["find-cache-dir", "npm:2.1.0"],
-            ["lodash", "npm:4.17.15"],
+            ["lodash", "npm:4.18.1"],
             ["mkdirp", "npm:0.5.1"],
             ["pirates", "npm:4.0.1"],
             ["source-map-support", "npm:0.5.13"]
@@ -566,7 +566,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/types", "npm:7.5.5"],
             ["debug", "virtual:fd58a38d1c405e74ad8f24510c1e7e261aefaf0f53edfc08a20a010c6035531aafe89a3a49b864163cd5334e9b0a8e051477e917c733114bcd63f7d1a7978301#npm:4.1.1"],
             ["globals", "npm:11.12.0"],
-            ["lodash", "npm:4.17.15"]
+            ["lodash", "npm:4.18.1"]
           ],
           "linkType": "HARD",
         }]
@@ -586,7 +586,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@babel/types", "npm:7.5.5"],
             ["esutils", "npm:2.0.3"],
-            ["lodash", "npm:4.17.15"],
+            ["lodash", "npm:4.18.1"],
             ["to-fast-properties", "npm:2.0.0"]
           ],
           "linkType": "HARD",
@@ -2058,10 +2058,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["lodash", [
-        ["npm:4.17.15", {
-          "packageLocation": "./.yarn/cache/lodash-npm-4.17.15-566d9324f7-bb689bc88c.zip/node_modules/lodash/",
+        ["npm:4.18.1", {
+          "packageLocation": "./.yarn/cache/lodash-npm-4.18.1-a64c3070ac-bb5f5b49aa.zip/node_modules/lodash/",
           "packageDependencies": [
-            ["lodash", "npm:4.17.15"]
+            ["lodash", "npm:4.18.1"]
           ],
           "linkType": "HARD",
         }]
@@ -3373,7 +3373,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yup", "npm:0.27.0"],
             ["@babel/runtime", "npm:7.5.5"],
             ["fn-name", "npm:2.0.1"],
-            ["lodash", "npm:4.17.15"],
+            ["lodash", "npm:4.18.1"],
             ["property-expr", "npm:1.5.1"],
             ["synchronous-promise", "npm:2.0.9"],
             ["toposort", "npm:2.0.2"]
